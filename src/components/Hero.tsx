@@ -63,7 +63,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 text-center relative z-10">
         <div className="opacity-0 fade-in-up">
           <div className="inline-block px-3 py-1 rounded-full bg-halloween-orange/20 text-halloween-orange mb-4 border border-halloween-orange/30">
-            <span className="text-sm font-medium">October 29-31, 2023</span>
+            <span className="text-sm font-medium">March 28-29, 2025</span>
           </div>
         </div>
         
@@ -96,15 +96,15 @@ const Hero = () => {
         
         <div className="mt-12 flex justify-center items-center space-x-8 opacity-0 fade-in-up delay-400">
           <div className="flex flex-col items-center">
-            <div className="text-4xl font-bold text-halloween-ghostWhite">48</div>
+            <div className="text-4xl font-bold text-halloween-ghostWhite">24</div>
             <div className="text-sm text-halloween-ghostWhite/60">Hours</div>
           </div>
           <div className="flex flex-col items-center">
-            <div className="text-4xl font-bold text-halloween-ghostWhite">5</div>
+            <div className="text-4xl font-bold text-halloween-ghostWhite">4</div>
             <div className="text-sm text-halloween-ghostWhite/60">Tracks</div>
           </div>
           <div className="flex flex-col items-center">
-            <div className="text-4xl font-bold text-halloween-orange">$10K</div>
+            <div className="text-4xl font-bold text-halloween-orange"> ₹15 K</div>
             <div className="text-sm text-halloween-ghostWhite/60">In Prizes</div>
           </div>
         </div>

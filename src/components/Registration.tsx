@@ -225,8 +225,8 @@ const Registration = () => {
                 Submission Guidelines
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite max-w-2xl">
-              <DialogHeader>
+            <DialogContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite max-w-2xl max-h-lvh overflow-auto">
+            <DialogHeader>
                 <DialogTitle className="text-halloween-orange text-xl">Submission Guidelines</DialogTitle>
                 <DialogDescription className="text-halloween-ghostWhite/70">
                   Follow these guidelines for your submission to be accepted.
@@ -240,7 +240,7 @@ const Registration = () => {
                     Submission Requirements
                   </h3>
                   <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
-                    <li><strong>Video:</strong> Max 2 minutes</li>
+                    <li><strong>Video:</strong> Max 1 minutes explaination of your unique idea</li>
                     <li><strong>PPT:</strong> Min 6 slides and Max 10 slides, PDF/PPTX format</li>
                     <li>PPT should have the problem statement</li>
                     <li>In PPT include your unique solution</li>
@@ -258,7 +258,7 @@ const Registration = () => {
                     Important Notes
                   </h3>
                   <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
-                    <li><strong>Deadline:</strong> August 25th 11:59 PM</li>
+                    <li><strong>Deadline:</strong> March 25th 11:59 PM</li>
                     <li>No edits allowed after submission</li>
                     <li>Max team size: 4 members</li>
                     <li>Make sure Google Drive link is accessible</li>
@@ -515,7 +515,7 @@ const Registration = () => {
             <div className="glass-card p-6 text-center">
               <Ghost className="mx-auto text-halloween-orange mb-4" size={28} />
               <h3 className="text-halloween-ghostWhite font-medium mb-2">Limited Spots</h3>
-              <p className="text-halloween-ghostWhite/70 text-sm">Only 500 hackers can participate. Register early!</p>
+              <p className="text-halloween-ghostWhite/70 text-sm">Only 100 hackers can participate. Register early!</p>
             </div>
             
             <div className="glass-card p-6 text-center">
@@ -526,7 +526,7 @@ const Registration = () => {
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
               <h3 className="text-halloween-ghostWhite font-medium mb-2">Mark Your Calendar</h3>
-              <p className="text-halloween-ghostWhite/70 text-sm">August 20-25, 2023. Don't miss out!</p>
+              <p className="text-halloween-ghostWhite/70 text-sm">March 28-29, 2025. Don't miss out!</p>
             </div>
             
             <div className="glass-card p-6 text-center">
