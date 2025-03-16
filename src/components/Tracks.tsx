@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from 'react';
-import { Ghost, Skull, Code, FlameKindling, Test } from 'lucide-react';
+import { Ghost, Skull, Code, FlameKindling, Beaker } from 'lucide-react';
 
 const Tracks = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -51,7 +51,7 @@ const Tracks = () => {
       color: "lavender"
     },
     {
-      icon: <Test className="h-10 w-10 text-halloween-orange" />,
+      icon: <Beaker className="h-10 w-10 text-halloween-orange" />,
       title: "Zombie Hardware",
       description: "Bring dead hardware back to life through IoT, robotics, and other hardware hacks with a Halloween theme.",
       color: "orange"
