@@ -81,7 +81,7 @@ const Hero = () => {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 fade-in-up delay-300">
           <a 
-            href="#register" 
+            href="/register" 
             className="ghost-btn orange-glow text-lg px-8 py-4"
           >
             Register Now
