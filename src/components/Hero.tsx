@@ -41,8 +41,8 @@ const Hero = () => {
     >
       {/* Floating background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* <img src='/public/codearambh hackathon.jpg' /> */}
-        <Ghost
+        <img src='/codearambh-hackathon.jpg' className="bg-cover w-full" />
+        {/* <Ghost
           className="absolute top-1/4 left-1/5 text-halloween-ghostWhite/5 floating-icon animate-float"
           size={80}
         />
@@ -60,29 +60,29 @@ const Hero = () => {
           className="absolute bottom-1/3 left-1/4 text-halloween-ghostWhite/5 floating-icon animate-float"
           style={{ animationDelay: "3s" }}
           size={50}
-        />
+        /> */}
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="opacity-0 fade-in-up">
+        {/* <div className="opacity-0 fade-in-up">
           <div className="inline-block px-3 py-1 rounded-full bg-halloween-orange/20 text-halloween-orange mb-4 border border-halloween-orange/30">
             <span className="text-sm font-medium">March 28-29, 2025</span>
           </div>
-        </div>
+        </div> */}
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 opacity-0 fade-in-up delay-100">
+        {/* <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 opacity-0 fade-in-up delay-100">
           <span className="text-halloween-ghostWhite">CODE</span>
           <span className="text-halloween-orange">ARAMBH</span>
-        </h1>
+        </h1> */}
 
-        <div className="max-w-3xl mx-auto opacity-0 fade-in-up delay-200">
+        {/* <div className="max-w-3xl mx-auto opacity-0 fade-in-up delay-200">
           <p className="text-xl md:text-2xl text-halloween-ghostWhite/80 mb-8">
             Unleash your coding powers at the spookiest hackathon of the year.
             Build, collaborate, and innovate with a Halloween twist.
           </p>
-        </div>
+        </div> */}
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 fade-in-up delay-300">
+        {/* <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 fade-in-up delay-300">
           <Link
             to="/register"
             className="ghost-btn orange-glow text-lg px-8 py-4"
@@ -95,9 +95,9 @@ const Hero = () => {
           >
             Learn More
           </a>
-        </div>
+        </div> */}
 
-        <div className="mt-12 flex justify-center items-center space-x-8 opacity-0 fade-in-up delay-400">
+        {/* <div className="mt-12 flex justify-center items-center space-x-8 opacity-0 fade-in-up delay-400">
           <div className="flex flex-col items-center">
             <div className="text-4xl font-bold text-halloween-ghostWhite">
               24
@@ -119,7 +119,7 @@ const Hero = () => {
               In Prizes
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce opacity-0 fade-in-up delay-500">
           <a
