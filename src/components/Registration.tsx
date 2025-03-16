@@ -2,12 +2,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Ghost } from 'lucide-react';
 import { toast } from "@/components/ui/use-toast";
+import { Form } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 
 const Registration = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    teamName: '',
+    theme: '',
     role: 'participant',
     experience: 'beginner',
     teamStatus: 'individual',
@@ -43,6 +55,13 @@ const Registration = () => {
     });
   };
 
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
     setFormData({
@@ -66,6 +85,8 @@ const Registration = () => {
       setFormData({
         name: '',
         email: '',
+        teamName: '',
+        theme: '',
         role: 'participant',
         experience: 'beginner',
         teamStatus: 'individual',
@@ -104,8 +125,7 @@ const Registration = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label htmlFor="name" className="block text-halloween-ghostWhite mb-2">Full Name</label>
-                  <input
-                    type="text"
+                  <Input
                     id="name"
                     name="name"
                     value={formData.name}
@@ -118,7 +138,7 @@ const Registration = () => {
                 
                 <div>
                   <label htmlFor="email" className="block text-halloween-ghostWhite mb-2">Email Address</label>
-                  <input
+                  <Input
                     type="email"
                     id="email"
                     name="email"
@@ -131,53 +151,93 @@ const Registration = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="role" className="block text-halloween-ghostWhite mb-2">Your Role</label>
-                  <select
-                    id="role"
-                    name="role"
-                    value={formData.role}
+                  <label htmlFor="teamName" className="block text-halloween-ghostWhite mb-2">Team Name</label>
+                  <Input
+                    id="teamName"
+                    name="teamName"
+                    value={formData.teamName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange appearance-none"
+                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                    placeholder="Enter your team name"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="theme" className="block text-halloween-ghostWhite mb-2">Select Theme</label>
+                  <Select 
+                    name="theme" 
+                    value={formData.theme} 
+                    onValueChange={(value) => handleSelectChange("theme", value)}
                   >
-                    <option value="participant">Participant</option>
-                    <option value="mentor">Mentor</option>
-                    <option value="sponsor">Sponsor</option>
-                    <option value="volunteer">Volunteer</option>
-                  </select>
+                    <SelectTrigger className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange">
+                      <SelectValue placeholder="Select a theme" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite">
+                      <SelectItem value="ai">AI & Machine Learning</SelectItem>
+                      <SelectItem value="web3">Web3 & Blockchain</SelectItem>
+                      <SelectItem value="ar">AR/VR Experiences</SelectItem>
+                      <SelectItem value="health">Healthcare Innovation</SelectItem>
+                      <SelectItem value="social">Social Impact</SelectItem>
+                      <SelectItem value="gamedev">Game Development</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div>
+                  <label htmlFor="role" className="block text-halloween-ghostWhite mb-2">Your Role</label>
+                  <Select 
+                    name="role" 
+                    value={formData.role} 
+                    onValueChange={(value) => handleSelectChange("role", value)}
+                  >
+                    <SelectTrigger className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange">
+                      <SelectValue placeholder="Select your role" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite">
+                      <SelectItem value="participant">Participant</SelectItem>
+                      <SelectItem value="mentor">Mentor</SelectItem>
+                      <SelectItem value="sponsor">Sponsor</SelectItem>
+                      <SelectItem value="volunteer">Volunteer</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 
                 <div>
                   <label htmlFor="experience" className="block text-halloween-ghostWhite mb-2">Coding Experience</label>
-                  <select
-                    id="experience"
-                    name="experience"
-                    value={formData.experience}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange appearance-none"
+                  <Select 
+                    name="experience" 
+                    value={formData.experience} 
+                    onValueChange={(value) => handleSelectChange("experience", value)}
                   >
-                    <option value="beginner">Beginner (0-1 years)</option>
-                    <option value="intermediate">Intermediate (1-3 years)</option>
-                    <option value="advanced">Advanced (3-5 years)</option>
-                    <option value="expert">Expert (5+ years)</option>
-                  </select>
+                    <SelectTrigger className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange">
+                      <SelectValue placeholder="Select your experience level" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite">
+                      <SelectItem value="beginner">Beginner (0-1 years)</SelectItem>
+                      <SelectItem value="intermediate">Intermediate (1-3 years)</SelectItem>
+                      <SelectItem value="advanced">Advanced (3-5 years)</SelectItem>
+                      <SelectItem value="expert">Expert (5+ years)</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
                 
                 <div>
                   <label htmlFor="teamStatus" className="block text-halloween-ghostWhite mb-2">Team Status</label>
-                  <select
-                    id="teamStatus"
-                    name="teamStatus"
-                    value={formData.teamStatus}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange appearance-none"
+                  <Select 
+                    name="teamStatus" 
+                    value={formData.teamStatus} 
+                    onValueChange={(value) => handleSelectChange("teamStatus", value)}
                   >
-                    <option value="individual">Registering as Individual</option>
-                    <option value="team">I have a team</option>
-                    <option value="lookingForTeam">Looking for team members</option>
-                  </select>
+                    <SelectTrigger className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange">
+                      <SelectValue placeholder="Select team status" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite">
+                      <SelectItem value="individual">Registering as Individual</SelectItem>
+                      <SelectItem value="team">I have a team</SelectItem>
+                      <SelectItem value="lookingForTeam">Looking for team members</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
               
@@ -199,7 +259,7 @@ const Registration = () => {
               </div>
               
               <div className="text-center">
-                <button
+                <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="ghost-btn orange-glow px-8 py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
@@ -215,7 +275,7 @@ const Registration = () => {
                   ) : (
                     'Register Now'
                   )}
-                </button>
+                </Button>
               </div>
             </form>
           </div>
