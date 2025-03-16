@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Facebook, GithubIcon, InstagramIcon, LinkedinIcon, TwitterIcon, Youtube } from 'lucide-react';
+import { Facebook, InstagramIcon, LinkedinIcon,  } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -56,23 +57,12 @@ const Footer = () => {
           <div>
             <h3 className="text-halloween-ghostWhite font-bold mb-6">More Info</h3>
             <ul className="space-y-3">
-              {/* <li>
-                <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Code of Conduct</a>
+      
+              <li>
+              <Link to="/contact-us" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Contact Us</Link>
               </li>
               <li>
-                <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Sponsorship</a>
-              </li> */}
-              <li>
-                <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Contact Us</a>
-              </li>
-              <li>
-                <a href="#register" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Register</a>
+                <Link to="/register" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Register</Link>
               </li>
             </ul>
           </div>

@@ -44,12 +44,12 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="text-2xl font-bold text-halloween-ghostWhite flex items-center"
           >
             <span className="text-halloween-orange">CODE</span>ARAMBH
-          </a>
+          </Link>
 
           <div className="hidden md:flex space-x-8 items-center">
             <nav className="flex space-x-6">
@@ -83,6 +83,9 @@ const Navbar = () => {
               >
                 FAQ
               </button>
+              <Link to="/contact-us" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">
+                Contact Us
+              </Link>
             </nav>
 
             <Link to="/register" className="ghost-btn orange-glow">
