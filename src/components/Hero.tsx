@@ -121,7 +121,7 @@ const Hero = () => {
           </div>
         </div> */}
 
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce opacity-0 fade-in-up delay-500">
+        {/* <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce opacity-0 fade-in-up delay-500">
           <a
             href="#about"
             className="text-halloween-ghostWhite/60 hover:text-halloween-ghostWhite transition-colors"
@@ -141,7 +141,7 @@ const Hero = () => {
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );
