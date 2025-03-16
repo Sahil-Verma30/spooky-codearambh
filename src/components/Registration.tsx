@@ -25,6 +25,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Textarea } from "./ui/textarea";
+import { useLocation } from "react-router-dom";
 
 type TeamMember = {
   name: string;
@@ -33,6 +34,12 @@ type TeamMember = {
 };
 
 const Registration = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  
   const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     teamName: "",
