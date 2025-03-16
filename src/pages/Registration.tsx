@@ -10,7 +10,7 @@ import FAQ from '@/components/FAQ';
 import Registration from '@/components/Registration';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const RegistrationPage = () => {
   useEffect(() => {
     // Initialize animations
     const hiddenElements = document.querySelectorAll('.fade-in-up');
@@ -30,18 +30,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-halloween-purple">
       <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Timeline />
-        <Tracks />
-        <Prizes />
-        <FAQ />
-        {/* <Registration /> */}
+      <main>        
+        <Registration />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default RegistrationPage;

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, GithubIcon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,25 +34,25 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold text-halloween-ghostWhite flex items-center">
+          <a href="/" className="text-2xl font-bold text-halloween-ghostWhite flex items-center">
             <span className="text-halloween-orange">CODE</span>ARAMBH
           </a>
           
           <div className="hidden md:flex space-x-8 items-center">
             <nav className="flex space-x-6">
-              <a href="#about" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">About</a>
-              <a href="#timeline" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">Timeline</a>
-              <a href="#tracks" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">Tracks</a>
-              <a href="#prizes" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">Prizes</a>
-              <a href="#faq" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">FAQ</a>
+              <Link to="/#about" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">About</Link>
+              <Link to="/#timeline" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">Timeline</Link>
+              <Link to="/#tracks" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">Tracks</Link>
+              <Link to="/#prizes" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">Prizes</Link>
+              <Link to="/#faq" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">FAQ</Link>
             </nav>
             
-            <a 
-              href="#register" 
+            <Link 
+              to="/register" 
               className="ghost-btn orange-glow"
             >
               Register Now
-            </a>
+            </Link>
           </div>
           
           <button 
@@ -72,42 +73,42 @@ const Navbar = () => {
       >
         <nav className="flex flex-col space-y-6 items-center text-xl">
           <a 
-            href="#about" 
+            href="/#about" 
             className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
             About
           </a>
           <a 
-            href="#timeline" 
+            href="/#timeline" 
             className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
             Timeline
           </a>
           <a 
-            href="#tracks" 
+            href="/#tracks" 
             className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
             Tracks
           </a>
           <a 
-            href="#prizes" 
+            href="/#prizes" 
             className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
             Prizes
           </a>
           <a 
-            href="#faq" 
+            href="/#faq" 
             className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
             FAQ
           </a>
           <a 
-            href="#register" 
+            href="/register" 
             className="ghost-btn orange-glow mt-4"
             onClick={() => setMobileMenuOpen(false)}
           >
