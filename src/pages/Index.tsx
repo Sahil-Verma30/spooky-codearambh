@@ -41,7 +41,7 @@ const Index = () => {
         {/* <Registration /> */}
       </main>
       <Footer />
-      <MusicPlayer />
+      {/* <MusicPlayer /> */}
     </div>
   );
 };
