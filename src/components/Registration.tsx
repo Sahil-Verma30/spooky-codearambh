@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Ghost } from 'lucide-react';
+import { Ghost, FileQuestion, AlertTriangle, FileCheck2, Clock } from 'lucide-react';
 import { toast } from "@/components/ui/use-toast";
 import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -12,20 +12,48 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
+type TeamMember = {
+  name: string;
+  email: string;
+  phone: string;
+};
 
 const Registration = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
     teamName: '',
     theme: '',
-    role: 'participant',
-    experience: 'beginner',
-    teamStatus: 'individual',
+    teamSize: '2',
+    teamLeaderName: '',
+    teamLeaderEmail: '',
+    teamLeaderPhone: '',
+    pptLink: '',
+    videoLink: '',
     termsAccepted: false
   });
+  
+  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([
+    { name: '', email: '', phone: '' },
+    { name: '', email: '', phone: '' },
+    { name: '', email: '', phone: '' }
+  ]);
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [openGuidelines, setOpenGuidelines] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,6 +75,23 @@ const Registration = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Adjust team members array based on team size
+    const size = parseInt(formData.teamSize);
+    if (size >= 2 && size <= 4) {
+      // Create new array with the correct number of members (minus the team leader)
+      const newTeamMembers = [...teamMembers];
+      // Ensure we have the right number of members
+      while (newTeamMembers.length < size - 1) {
+        newTeamMembers.push({ name: '', email: '', phone: '' });
+      }
+      while (newTeamMembers.length > size - 1) {
+        newTeamMembers.pop();
+      }
+      setTeamMembers(newTeamMembers);
+    }
+  }, [formData.teamSize]);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -62,6 +107,12 @@ const Registration = () => {
     });
   };
 
+  const handleTeamMemberChange = (index: number, field: keyof TeamMember, value: string) => {
+    const updatedMembers = [...teamMembers];
+    updatedMembers[index] = { ...updatedMembers[index], [field]: value };
+    setTeamMembers(updatedMembers);
+  };
+
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
     setFormData({
@@ -70,8 +121,49 @@ const Registration = () => {
     });
   };
 
+  const validateForm = (): boolean => {
+    // Basic validation
+    if (!formData.teamName || !formData.theme || !formData.teamLeaderName || 
+        !formData.teamLeaderEmail || !formData.teamLeaderPhone || 
+        !formData.pptLink || !formData.videoLink) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    // Validate team members based on team size
+    const teamSize = parseInt(formData.teamSize);
+    for (let i = 0; i < teamSize - 1; i++) {
+      if (!teamMembers[i].name || !teamMembers[i].email || !teamMembers[i].phone) {
+        toast({
+          title: "Missing Team Member Information",
+          description: `Please complete all fields for team member ${i + 1}.`,
+          variant: "destructive",
+        });
+        return false;
+      }
+    }
+
+    if (!formData.termsAccepted) {
+      toast({
+        title: "Terms Required",
+        description: "Please accept the terms and conditions to proceed.",
+        variant: "destructive",
+      });
+      return false;
+    }
+
+    return true;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!validateForm()) return;
+    
     setIsSubmitting(true);
     
     // Simulate form submission
@@ -82,16 +174,23 @@ const Registration = () => {
         variant: "default",
       });
       setIsSubmitting(false);
+      // Reset form data
       setFormData({
-        name: '',
-        email: '',
         teamName: '',
         theme: '',
-        role: 'participant',
-        experience: 'beginner',
-        teamStatus: 'individual',
+        teamSize: '2',
+        teamLeaderName: '',
+        teamLeaderEmail: '',
+        teamLeaderPhone: '',
+        pptLink: '',
+        videoLink: '',
         termsAccepted: false
       });
+      setTeamMembers([
+        { name: '', email: '', phone: '' },
+        { name: '', email: '', phone: '' },
+        { name: '', email: '', phone: '' }
+      ]);
     }, 1500);
   };
 
@@ -117,37 +216,79 @@ const Registration = () => {
             Secure your spot in the spookiest hackathon of the year. 
             Fill out the form below to begin your Halloween coding adventure.
           </p>
+          
+          {/* Guidelines Dialog */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" className="mt-4 border border-halloween-orange/30 bg-halloween-orange/10 text-halloween-orange hover:bg-halloween-orange/20">
+                <FileQuestion className="w-4 h-4 mr-2" />
+                Submission Guidelines
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite max-w-2xl">
+              <DialogHeader>
+                <DialogTitle className="text-halloween-orange text-xl">Submission Guidelines</DialogTitle>
+                <DialogDescription className="text-halloween-ghostWhite/70">
+                  Follow these guidelines for your submission to be accepted.
+                </DialogDescription>
+              </DialogHeader>
+              
+              <div className="space-y-6 mt-4">
+                <div className="space-y-2">
+                  <h3 className="text-halloween-orange flex items-center text-lg">
+                    <FileCheck2 className="w-5 h-5 mr-2" />
+                    Submission Requirements
+                  </h3>
+                  <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
+                    <li><strong>Video:</strong> Max 2 minutes</li>
+                    <li><strong>PPT:</strong> Min 6 slides and Max 10 slides, PDF/PPTX format</li>
+                    <li>PPT should have the problem statement</li>
+                    <li>In PPT include your unique solution</li>
+                    <li>How your solution impacts the real world</li>
+                    <li>Future scope</li>
+                    <li>Conclusion</li>
+                    <li>Tech stack</li>
+                    <li>File names must include team name</li>
+                  </ul>
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="text-halloween-orange flex items-center text-lg">
+                    <AlertTriangle className="w-5 h-5 mr-2" />
+                    Important Notes
+                  </h3>
+                  <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
+                    <li><strong>Deadline:</strong> August 25th 11:59 PM</li>
+                    <li>No edits allowed after submission</li>
+                    <li>Max team size: 4 members</li>
+                    <li>Make sure Google Drive link is accessible</li>
+                  </ul>
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="text-red-500 flex items-center text-lg">
+                    <Clock className="w-5 h-5 mr-2" />
+                    Rejection Reasons
+                  </h3>
+                  <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
+                    <li>Invalid file formats</li>
+                    <li>Missing team members info</li>
+                    <li>Google Drive access denied</li>
+                    <li>Late submissions</li>
+                  </ul>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
         </div>
 
         <div className="max-w-3xl mx-auto hidden-element opacity-0">
           <div className="glass-card p-8">
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                  <label htmlFor="name" className="block text-halloween-ghostWhite mb-2">Full Name</label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
-                    placeholder="Enter your name"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-halloween-ghostWhite mb-2">Email Address</label>
-                  <Input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
-                    placeholder="Enter your email"
-                  />
+                {/* Team Information */}
+                <div className="md:col-span-2">
+                  <h3 className="text-halloween-orange text-xl mb-4 border-b border-halloween-orange/20 pb-2">Team Information</h3>
                 </div>
                 
                 <div>
@@ -164,7 +305,7 @@ const Registration = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="theme" className="block text-halloween-ghostWhite mb-2">Select Theme</label>
+                  <label htmlFor="theme" className="block text-halloween-ghostWhite mb-2">Preferred Theme</label>
                   <Select 
                     name="theme" 
                     value={formData.theme} 
@@ -185,59 +326,149 @@ const Registration = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="role" className="block text-halloween-ghostWhite mb-2">Your Role</label>
+                  <label htmlFor="teamSize" className="block text-halloween-ghostWhite mb-2">Team Size</label>
                   <Select 
-                    name="role" 
-                    value={formData.role} 
-                    onValueChange={(value) => handleSelectChange("role", value)}
+                    name="teamSize" 
+                    value={formData.teamSize} 
+                    onValueChange={(value) => handleSelectChange("teamSize", value)}
                   >
                     <SelectTrigger className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange">
-                      <SelectValue placeholder="Select your role" />
+                      <SelectValue placeholder="Select team size" />
                     </SelectTrigger>
                     <SelectContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite">
-                      <SelectItem value="participant">Participant</SelectItem>
-                      <SelectItem value="mentor">Mentor</SelectItem>
-                      <SelectItem value="sponsor">Sponsor</SelectItem>
-                      <SelectItem value="volunteer">Volunteer</SelectItem>
+                      <SelectItem value="2">2 Members</SelectItem>
+                      <SelectItem value="3">3 Members</SelectItem>
+                      <SelectItem value="4">4 Members</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 
-                <div>
-                  <label htmlFor="experience" className="block text-halloween-ghostWhite mb-2">Coding Experience</label>
-                  <Select 
-                    name="experience" 
-                    value={formData.experience} 
-                    onValueChange={(value) => handleSelectChange("experience", value)}
-                  >
-                    <SelectTrigger className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange">
-                      <SelectValue placeholder="Select your experience level" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite">
-                      <SelectItem value="beginner">Beginner (0-1 years)</SelectItem>
-                      <SelectItem value="intermediate">Intermediate (1-3 years)</SelectItem>
-                      <SelectItem value="advanced">Advanced (3-5 years)</SelectItem>
-                      <SelectItem value="expert">Expert (5+ years)</SelectItem>
-                    </SelectContent>
-                  </Select>
+                {/* Team Leader Section */}
+                <div className="md:col-span-2">
+                  <h3 className="text-halloween-orange text-xl mb-4 border-b border-halloween-orange/20 pb-2">Team Leader Details</h3>
                 </div>
                 
                 <div>
-                  <label htmlFor="teamStatus" className="block text-halloween-ghostWhite mb-2">Team Status</label>
-                  <Select 
-                    name="teamStatus" 
-                    value={formData.teamStatus} 
-                    onValueChange={(value) => handleSelectChange("teamStatus", value)}
-                  >
-                    <SelectTrigger className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange">
-                      <SelectValue placeholder="Select team status" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite">
-                      <SelectItem value="individual">Registering as Individual</SelectItem>
-                      <SelectItem value="team">I have a team</SelectItem>
-                      <SelectItem value="lookingForTeam">Looking for team members</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <label htmlFor="teamLeaderName" className="block text-halloween-ghostWhite mb-2">Team Leader Name</label>
+                  <Input
+                    id="teamLeaderName"
+                    name="teamLeaderName"
+                    value={formData.teamLeaderName}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                    placeholder="Enter team leader's name"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="teamLeaderEmail" className="block text-halloween-ghostWhite mb-2">Email Address</label>
+                  <Input
+                    type="email"
+                    id="teamLeaderEmail"
+                    name="teamLeaderEmail"
+                    value={formData.teamLeaderEmail}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                    placeholder="Enter team leader's email"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="teamLeaderPhone" className="block text-halloween-ghostWhite mb-2">Phone Number</label>
+                  <Input
+                    type="tel"
+                    id="teamLeaderPhone"
+                    name="teamLeaderPhone"
+                    value={formData.teamLeaderPhone}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                    placeholder="Enter team leader's phone"
+                  />
+                </div>
+                
+                {/* Team Members Section - Only show if team size is selected */}
+                {parseInt(formData.teamSize) > 1 && (
+                  <>
+                    <div className="md:col-span-2">
+                      <h3 className="text-halloween-orange text-xl mb-4 border-b border-halloween-orange/20 pb-2">Team Members Details</h3>
+                    </div>
+                    
+                    {teamMembers.slice(0, parseInt(formData.teamSize) - 1).map((member, index) => (
+                      <div key={index} className="md:col-span-2 p-4 border border-white/10 rounded-lg bg-halloween-purple/30">
+                        <h4 className="text-halloween-ghostWhite mb-3">Team Member {index + 1}</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div>
+                            <label className="block text-halloween-ghostWhite mb-2">Name</label>
+                            <Input
+                              value={member.name}
+                              onChange={(e) => handleTeamMemberChange(index, 'name', e.target.value)}
+                              required
+                              className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                              placeholder="Enter name"
+                            />
+                          </div>
+                          
+                          <div>
+                            <label className="block text-halloween-ghostWhite mb-2">Email</label>
+                            <Input
+                              type="email"
+                              value={member.email}
+                              onChange={(e) => handleTeamMemberChange(index, 'email', e.target.value)}
+                              required
+                              className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                              placeholder="Enter email"
+                            />
+                          </div>
+                          
+                          <div>
+                            <label className="block text-halloween-ghostWhite mb-2">Phone</label>
+                            <Input
+                              type="tel"
+                              value={member.phone}
+                              onChange={(e) => handleTeamMemberChange(index, 'phone', e.target.value)}
+                              required
+                              className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                              placeholder="Enter phone"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </>
+                )}
+                
+                {/* Submission Section */}
+                <div className="md:col-span-2">
+                  <h3 className="text-halloween-orange text-xl mb-4 border-b border-halloween-orange/20 pb-2">Project Submission</h3>
+                </div>
+                
+                <div>
+                  <label htmlFor="pptLink" className="block text-halloween-ghostWhite mb-2">PPT Submission Link</label>
+                  <Input
+                    id="pptLink"
+                    name="pptLink"
+                    value={formData.pptLink}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                    placeholder="Enter Google Drive link to PPT"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="videoLink" className="block text-halloween-ghostWhite mb-2">Pitch Video Link</label>
+                  <Input
+                    id="videoLink"
+                    name="videoLink"
+                    value={formData.videoLink}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
+                    placeholder="Enter Google Drive link to video"
+                  />
                 </div>
               </div>
               
@@ -295,7 +526,7 @@ const Registration = () => {
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
               <h3 className="text-halloween-ghostWhite font-medium mb-2">Mark Your Calendar</h3>
-              <p className="text-halloween-ghostWhite/70 text-sm">October 29-31, 2023. Don't miss out!</p>
+              <p className="text-halloween-ghostWhite/70 text-sm">August 20-25, 2023. Don't miss out!</p>
             </div>
             
             <div className="glass-card p-6 text-center">
