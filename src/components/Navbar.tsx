@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-halloween-darkPurple/90",
+        "fixed top-0 left-0 right-0 pt-2 z-50 transition-all duration-300 ease-in-out bg-halloween-darkPurple/90",
         // isScrolled
         //   ? "py-2 bg-halloween-darkPurple/90 backdrop-blur-lg shadow-lg"
         //   : "py-4 bg-transparent"
