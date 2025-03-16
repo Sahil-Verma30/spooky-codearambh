@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FAQ = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -123,8 +124,8 @@ const FAQ = () => {
             <p className="text-halloween-ghostWhite/70 mb-6">
               Still have questions? We're here to help!
             </p>
-            <a 
-              href="#" 
+            <Link 
+              to="/contact-us" 
               className="ghost-btn inline-flex items-center"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
@@ -133,7 +134,7 @@ const FAQ = () => {
                 <path d="M14 12.5V5a2 2 0 1 0-4 0v7.5"></path>
               </svg>
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

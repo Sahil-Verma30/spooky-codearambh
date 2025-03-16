@@ -112,6 +112,13 @@ const Navbar = () => {
             </a>
           ))}
           <Link
+            to="/contact-us"
+            className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Contact Us
+          </Link>
+          <Link
             to="/register"
             className="ghost-btn orange-glow mt-4"
             onClick={() => setMobileMenuOpen(false)}

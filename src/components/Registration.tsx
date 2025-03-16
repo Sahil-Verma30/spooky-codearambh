@@ -39,7 +39,7 @@ const Registration = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  
+
   const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     teamName: "",
@@ -749,7 +749,7 @@ const Registration = () => {
                   Mark Your Calendar
                 </h3>
                 <p className="text-halloween-ghostWhite/70 text-sm">
-                  August 20-25, 2023. Don't miss out!
+                  March 28-29, 2025. Don't miss out!
                 </p>
               </div>
 
