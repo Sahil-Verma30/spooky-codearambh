@@ -59,8 +59,27 @@ const Tracks = () => {
   ];
 
   return (
-    <section id="tracks" ref={sectionRef} className="section-padding py-28">
-      <div className="container mx-auto">
+    <section 
+      id="tracks" 
+      ref={sectionRef} 
+      className="section-padding py-28 relative"
+      style={{
+        backgroundImage: `
+          linear-gradient(to bottom, rgba(26, 31, 44, 0.95), rgba(26, 31, 44, 0.8)), 
+          url('/lovable-uploads/824de581-d495-4db3-8517-b11841933452.png')
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Overlay elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-halloween-purple to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-halloween-purple to-transparent"></div>
+      </div>
+      
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block px-3 py-1 rounded-full bg-halloween-lavender/20 text-halloween-lavender mb-4 border border-halloween-lavender/30 hidden-element opacity-0">
             <span className="text-sm font-medium">Hackathon Categories</span>
