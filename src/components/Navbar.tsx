@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, GithubIcon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -9,22 +9,19 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleNavigation = (id: string) => {
-    navigate(`/#${id}`); // Navigate to home with hash
+    navigate(`/#${id}`);
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 100); // Delay to ensure navigation happens first
+    }, 100);
+    setMobileMenuOpen(false); // Close mobile menu when clicking a link
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -36,14 +33,15 @@ const Navbar = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-        isScrolled
-          ? "py-2 bg-halloween-darkPurple/90 backdrop-blur-lg shadow-lg"
-          : "py-4 bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out bg-halloween-darkPurple/90",
+        // isScrolled
+        //   ? "py-2 bg-halloween-darkPurple/90 backdrop-blur-lg shadow-lg"
+        //   : "py-4 bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 ">
         <div className="flex items-center justify-between">
+          {/* Brand Logo */}
           <Link
             to="/"
             className="text-2xl font-bold text-halloween-ghostWhite flex items-center"
@@ -51,39 +49,22 @@ const Navbar = () => {
             <span className="text-halloween-orange">CODE</span>ARAMBH
           </Link>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 items-center">
             <nav className="flex space-x-6">
-              <button
-                onClick={() => handleNavigation("about")}
+              {["about", "timeline", "tracks", "prizes", "faq"].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => handleNavigation(item)}
+                  className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </button>
+              ))}
+              <Link
+                to="/contact-us"
                 className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
               >
-                About
-              </button>
-              <button
-                onClick={() => handleNavigation("timeline")}
-                className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-              >
-                Timeline
-              </button>
-              <button
-                onClick={() => handleNavigation("tracks")}
-                className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-              >
-                Tracks
-              </button>
-              <button
-                onClick={() => handleNavigation("prizes")}
-                className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-              >
-                Prizes
-              </button>
-              <button
-                onClick={() => handleNavigation("faq")}
-                className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-              >
-                FAQ
-              </button>
-              <Link to="/contact-us" className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors">
                 Contact Us
               </Link>
             </nav>
@@ -93,67 +74,50 @@ const Navbar = () => {
             </Link>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden text-halloween-ghostWhite"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <Menu size={28} />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu (Full Screen) */}
       <div
         className={cn(
-          "fixed inset-0 bg-halloween-darkPurple/95 flex flex-col justify-center items-center z-40 transition-all duration-300 md:hidden",
-          mobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+          "fixed inset-0 bg-halloween-darkPurple/95 flex flex-col items-center justify-center z-50 transition-all duration-300 md:hidden",
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
-        <nav className="flex flex-col space-y-6 items-center text-xl">
-          <a
-            href="/#about"
-            className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            About
-          </a>
-          <a
-            href="/#timeline"
-            className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Timeline
-          </a>
-          <a
-            href="/#tracks"
-            className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Tracks
-          </a>
-          <a
-            href="/#prizes"
-            className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Prizes
-          </a>
-          <a
-            href="/#faq"
-            className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            FAQ
-          </a>
-          <a
-            href="/register"
+        {/* Close Button (Fixed at the Top Right) */}
+        <button
+          className="absolute top-6 right-6 text-halloween-ghostWhite text-3xl"
+          onClick={() => setMobileMenuOpen(false)}
+        >
+          <X size={32} />
+        </button>
+
+        {/* Navigation Links */}
+        <nav className="flex flex-col space-y-6 items-center text-xl mt-8">
+          {["about", "timeline", "tracks", "prizes", "faq"].map((item) => (
+            <a
+              key={item}
+              href={`/#${item}`}
+              className="text-halloween-ghostWhite hover:text-halloween-orange transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </a>
+          ))}
+          <Link
+            to="/register"
             className="ghost-btn orange-glow mt-4"
             onClick={() => setMobileMenuOpen(false)}
           >
             Register Now
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

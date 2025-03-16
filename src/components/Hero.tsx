@@ -82,7 +82,7 @@ const Hero = () => {
 
           {/* Date with Haunted Glow */}
           <div className="inline-block px-5 py-2 rounded-full bg-gradient-to-r from-orange-700 to-orange-500 text-black mb-4 border border-orange-300 shadow-lg shadow-orange-500/50 neon-glow">
-            <span className="text-lg font-bold tracking-widest spooky-text">
+            <span className="text-lg  font-bold tracking-widest spooky-text">
               👻 March 28-29, 2025 👻
             </span>
           </div>
