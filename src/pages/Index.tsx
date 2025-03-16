@@ -9,7 +9,7 @@ import Prizes from '@/components/Prizes';
 import FAQ from '@/components/FAQ';
 import Registration from '@/components/Registration';
 import Footer from '@/components/Footer';
-import MusicPlayer from '@/components/MusicPlayer';
+// import MusicPlayer from '@/components/MusicPlayer';
 
 const Index = () => {
   useEffect(() => {

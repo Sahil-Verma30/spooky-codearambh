@@ -40,20 +40,20 @@ const Tracks = () => {
     },
     {
       icon: <FlameKindling className="h-10 w-10 text-halloween-orange" />,
-      title: "Witch's Web",
-      description: "Craft enchanting web experiences using the latest front-end technologies and mystical UI/UX spells.",
+      title: "Smart Education",
+      description: "Revolutionize learning with technology! Smart Education focuses on creating innovative solutions that make education more accessible and engaging.",
       color: "orange"
     },
-    {
-      icon: <Code className="h-10 w-10 text-halloween-lavender" />,
-      title: "Monster Mobile",
-      description: "Summon mobile applications that transform the way users interact with their devices during spooky season.",
-      color: "lavender"
-    },
+    // {
+    //   icon: <Code className="h-10 w-10 text-halloween-lavender" />,
+    //   title: "Monster Mobile",
+    //   description: "Summon mobile applications that transform the way users interact with their devices during spooky season.",
+    //   color: "lavender"
+    // },
     {
       icon: <Beaker className="h-10 w-10 text-halloween-orange" />,
-      title: "Zombie Hardware",
-      description: "Bring dead hardware back to life through IoT, robotics, and other hardware hacks with a Halloween theme.",
+      title: "Open Innovation",
+      description: "Break the boundaries of traditional problem-solving! Open Innovation encourages creative minds to develop impactful solutions across any domain.",
       color: "orange"
     }
   ];

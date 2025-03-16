@@ -36,7 +36,7 @@ const Prizes = () => {
             <span className="text-halloween-orange">Prizes</span>
           </h2>
           <p className="text-halloween-ghostWhite/70 max-w-2xl mx-auto hidden-element opacity-0">
-            Compete for a treasure trove of prizes worth over $10,000, including cash, 
+            Compete for a treasure trove of prizes worth over ₹20,000, including cash, 
             gadgets, and opportunities that will take your career to the next level.
           </p>
         </div>
@@ -60,12 +60,12 @@ const Prizes = () => {
                   <span className="text-sm text-halloween-ghostWhite/70">2nd Place</span>
                   <h3 className="text-2xl font-bold text-halloween-lavender">Silver Spell</h3>
                 </div>
-                <div className="text-3xl font-bold text-halloween-ghostWhite mb-6">$2,500</div>
+                <div className="text-3xl font-bold text-halloween-ghostWhite mb-6">₹5,000</div>
                 <ul className="text-halloween-ghostWhite/70 space-y-2 mb-8">
-                  <li>Latest Pro Tablets</li>
-                  <li>1-Year Premium API Credits</li>
+                  <li>Cash prize</li>
+                  <li>Certificates and Trophy</li>
                   <li>Exclusive Mentorship Sessions</li>
-                  <li>Swag Bags & Halloween Treats</li>
+                  <li>Goddies</li>
                 </ul>
               </div>
             </div>
@@ -94,13 +94,12 @@ const Prizes = () => {
                   <span className="text-sm text-halloween-ghostWhite/70">1st Place</span>
                   <h3 className="text-2xl font-bold text-halloween-orange">Grand Sorcerer</h3>
                 </div>
-                <div className="text-4xl font-bold text-halloween-ghostWhite mb-6">$5,000</div>
+                <div className="text-4xl font-bold text-halloween-ghostWhite mb-6">₹7,000</div>
                 <ul className="text-halloween-ghostWhite/70 space-y-2 mb-8">
-                  <li>Latest Pro Laptops</li>
-                  <li>2-Year Premium API Credits</li>
-                  <li>Internship Opportunities</li>
-                  <li>VIP Conference Passes</li>
-                  <li>Ultimate Swag Packages</li>
+                  <li>Cash prize</li>
+                  <li>Certificates and Trophy</li>
+                  <li>Exclusive Mentorship Sessions</li>
+                  <li>Goddies</li>
                 </ul>
               </div>
               <div className="mt-4">
@@ -129,19 +128,19 @@ const Prizes = () => {
                   <span className="text-sm text-halloween-ghostWhite/70">3rd Place</span>
                   <h3 className="text-2xl font-bold text-halloween-lavender">Bronze Witch</h3>
                 </div>
-                <div className="text-3xl font-bold text-halloween-ghostWhite mb-6">$1,000</div>
+                <div className="text-3xl font-bold text-halloween-ghostWhite mb-6">₹3,000</div>
                 <ul className="text-halloween-ghostWhite/70 space-y-2 mb-8">
-                  <li>Premium Headphones</li>
-                  <li>6-Month API Credits</li>
-                  <li>Online Course Vouchers</li>
-                  <li>Swag Bags & Halloween Treats</li>
+                <li>Cash prize</li>
+                  <li>Certificates and Trophy</li>
+                  <li>Exclusive Mentorship Sessions</li>
+                  <li>Goddies</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
         
-        <div className="hidden-element opacity-0">
+        {/* <div className="hidden-element opacity-0">
           <div className="glass-card p-8">
             <h3 className="text-2xl font-bold text-halloween-ghostWhite mb-6 text-center">Special Category Prizes</h3>
             
@@ -183,7 +182,7 @@ const Prizes = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

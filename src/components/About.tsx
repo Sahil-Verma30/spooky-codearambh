@@ -48,7 +48,7 @@ const About = () => {
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-halloween-orange relative z-10">What is CODEARAMBH?</h3>
                 <p className="text-halloween-ghostWhite/80 mb-4 relative z-10">
-                  CODEARAMBH is a 48-hour hackathon where participants come together to solve 
+                  CODEARAMBH is a 24-hour hackathon where participants come together to solve 
                   challenging problems, build innovative projects, and showcase their technical skills - 
                   all with a Halloween twist!
                 </p>
@@ -76,7 +76,7 @@ const About = () => {
                   </li>
                   <li className="flex items-start space-x-3">
                     <Ghost className="text-halloween-lavender flex-shrink-0 mt-0.5" size={20} />
-                    <span className="text-halloween-ghostWhite/80">Win amazing prizes worth over $10,000</span>
+                    <span className="text-halloween-ghostWhite/80">Win amazing prizes worth over ₹15,000</span>
                   </li>
                   <li className="flex items-start space-x-3">
                     <Ghost className="text-halloween-lavender flex-shrink-0 mt-0.5" size={20} />
@@ -102,7 +102,7 @@ const About = () => {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-halloween-ghostWhite mb-2">500+</h4>
+                <h4 className="text-xl font-bold text-halloween-ghostWhite mb-2">100+</h4>
                 <p className="text-halloween-ghostWhite/60">Participants</p>
               </div>
               
@@ -113,8 +113,8 @@ const About = () => {
                     <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-halloween-ghostWhite mb-2">50+</h4>
-                <p className="text-halloween-ghostWhite/60">Universities</p>
+                <h4 className="text-xl font-bold text-halloween-ghostWhite mb-2">10+</h4>
+                <p className="text-halloween-ghostWhite/60">Colleges</p>
               </div>
               
               <div className="flex flex-col items-center">
@@ -123,7 +123,7 @@ const About = () => {
                     <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-halloween-ghostWhite mb-2">20+</h4>
+                <h4 className="text-xl font-bold text-halloween-ghostWhite mb-2">2+</h4>
                 <p className="text-halloween-ghostWhite/60">Workshops</p>
               </div>
               
@@ -133,8 +133,8 @@ const About = () => {
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                   </svg>
                 </div>
-                <h4 className="text-xl font-bold text-halloween-ghostWhite mb-2">25+</h4>
-                <p className="text-halloween-ghostWhite/60">Sponsors</p>
+                <h4 className="text-xl font-bold text-halloween-ghostWhite mb-2">10+</h4>
+                <p className="text-halloween-ghostWhite/60">Mentors</p>
               </div>
             </div>
           </div>

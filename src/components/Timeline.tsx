@@ -26,42 +26,42 @@ const Timeline = () => {
 
   const timelineItems = [
     {
-      date: "October 1",
+      date: "March 15",
       title: "Registration Opens",
-      description: "Sign up to secure your spot in the hackathon"
+      description: "Register to secure your spot in the hackathon"
     },
     {
-      date: "October 15",
+      date: "March 25",
       title: "Team Formation Deadline",
       description: "Finalize your team of up to 4 members"
     },
     {
-      date: "October 28",
+      date: "March 28",
       title: "Opening Ceremony",
       description: "Join us for the kickoff event with special guests"
     },
     {
-      date: "October 29",
+      date: "March 28",
       title: "Hackathon Begins",
       description: "Start coding! The clock starts ticking"
     },
     {
-      date: "October 30",
+      date: "March 28-29",
       title: "Mid-Hackathon Check-in",
       description: "Progress review and mentorship sessions"
     },
     {
-      date: "October 31",
+      date: "March 29",
       title: "Final Submissions",
-      description: "Submit your project by 3 PM"
+      description: "Submit your project by 6 AM"
     },
     {
-      date: "October 31",
+      date: "March 29",
       title: "Halloween Demos & Judging",
-      description: "Present your project to the judges in costume!"
+      description: "Present your project to the judges!"
     },
     {
-      date: "October 31",
+      date: "March 29",
       title: "Winners Announced",
       description: "Awards ceremony and closing celebrations"
     }

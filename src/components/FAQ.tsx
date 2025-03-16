@@ -37,11 +37,11 @@ const FAQ = () => {
   const faqItems = [
     {
       question: "Who can participate in CODEARAMBH?",
-      answer: "CODEARAMBH is open to students, professionals, and coding enthusiasts of all skill levels. Whether you're a beginner or an experienced developer, everyone is welcome to join the hackathon!"
+      answer: "CODEARAMBH is open to students and coding enthusiasts of all skill levels. Whether you're a beginner or an experienced developer, everyone is welcome to join the hackathon!"
     },
     {
       question: "Do I need to have a team to register?",
-      answer: "No, you can register as an individual and form a team later. We'll have a team formation event before the hackathon starts. Teams can have up to 4 members."
+      answer: "Yes, you can register as an duo and Teams can have up to 4 members."
     },
     {
       question: "Is there a registration fee?",
@@ -49,7 +49,7 @@ const FAQ = () => {
     },
     {
       question: "What should I bring to the hackathon?",
-      answer: "Bring your laptop, charger, any hardware you plan to use, and your Halloween costume! We'll provide food, drinks, and a spooky atmosphere."
+      answer: "Bring your laptop, charger, any hardware you plan to use! We'll provide food, drinks, and a spooky atmosphere."
     },
     {
       question: "Will there be food and drinks?",
@@ -57,12 +57,12 @@ const FAQ = () => {
     },
     {
       question: "Can I start working on my project before the hackathon?",
-      answer: "No, all coding must be done during the 48-hour hackathon period. You can brainstorm ideas beforehand, but no pre-written code is allowed."
+      answer: "No, all coding must be done during the 24-hour hackathon period. You can brainstorm ideas beforehand, but no pre-written code is allowed."
     },
-    {
-      question: "Are there any hardware resources available?",
-      answer: "Yes, we'll have a hardware lab with various sensors, microcontrollers, and other components that participants can use. However, quantities are limited, so bring your own hardware if possible."
-    },
+    // {
+    //   question: "Are there any hardware resources available?",
+    //   answer: "Yes, we'll have a hardware lab with various sensors, microcontrollers, and other components that participants can use. However, quantities are limited, so bring your own hardware if possible."
+    // },
     {
       question: "How will projects be judged?",
       answer: "Projects will be judged based on creativity, technical complexity, practicality, presentation, and how well they fit the Halloween theme. Each track will also have specific criteria relevant to its focus area."
@@ -124,7 +124,7 @@ const FAQ = () => {
               Still have questions? We're here to help!
             </p>
             <a 
-              href="mailto:info@codearambh.com" 
+              href="#" 
               className="ghost-btn inline-flex items-center"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">

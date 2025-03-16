@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { GithubIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from 'lucide-react';
+import { Facebook, GithubIcon, InstagramIcon, LinkedinIcon, TwitterIcon, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -16,18 +16,18 @@ const Footer = () => {
               developers to build innovative projects with a Halloween twist.
             </p>
             <div className="flex space-x-4 mt-6">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-halloween-ghostWhite hover:bg-halloween-orange/20 hover:text-halloween-orange transition-colors">
-                <TwitterIcon size={18} />
+              <a href="https://www.facebook.com/hietnh24?mibextid=ZbWKwL" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-halloween-ghostWhite hover:bg-halloween-orange/20 hover:text-halloween-orange transition-colors">
+                <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-halloween-ghostWhite hover:bg-halloween-orange/20 hover:text-halloween-orange transition-colors">
+              <a href="https://www.instagram.com/hitechcollege2004?igsh=ejIzOWk4MWE4cWFt" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-halloween-ghostWhite hover:bg-halloween-orange/20 hover:text-halloween-orange transition-colors">
                 <InstagramIcon size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-halloween-ghostWhite hover:bg-halloween-orange/20 hover:text-halloween-orange transition-colors">
+              <a href="https://www.linkedin.com/company/hi-tech-institute-of-engineering-of-technology/" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-halloween-ghostWhite hover:bg-halloween-orange/20 hover:text-halloween-orange transition-colors">
                 <LinkedinIcon size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-halloween-ghostWhite hover:bg-halloween-orange/20 hover:text-halloween-orange transition-colors">
-                <GithubIcon size={18} />
-              </a>
+              {/* <a href="twitter.com/hitech2004" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-halloween-ghostWhite hover:bg-halloween-orange/20 hover:text-halloween-orange transition-colors">
+                <TwitterIcon size={18} />
+              </a> */}
             </div>
           </div>
           
@@ -49,16 +49,14 @@ const Footer = () => {
               <li>
                 <a href="#faq" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">FAQ</a>
               </li>
-              <li>
-                <a href="#register" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Register</a>
-              </li>
+              
             </ul>
           </div>
           
           <div>
             <h3 className="text-halloween-ghostWhite font-bold mb-6">More Info</h3>
             <ul className="space-y-3">
-              <li>
+              {/* <li>
                 <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Code of Conduct</a>
               </li>
               <li>
@@ -69,9 +67,12 @@ const Footer = () => {
               </li>
               <li>
                 <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Sponsorship</a>
-              </li>
+              </li> */}
               <li>
                 <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Contact Us</a>
+              </li>
+              <li>
+                <a href="#register" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors">Register</a>
               </li>
             </ul>
           </div>
@@ -81,11 +82,11 @@ const Footer = () => {
           <p className="text-halloween-ghostWhite/60 mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} CODEARAMBH. All rights reserved.
           </p>
-          <div className="flex space-x-6">
+          {/* <div className="flex space-x-6">
             <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors text-sm">Privacy</a>
             <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors text-sm">Terms</a>
             <a href="#" className="text-halloween-ghostWhite/60 hover:text-halloween-orange transition-colors text-sm">Cookies</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
