@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import logos from "../components/assests/log.gif"
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,7 +47,7 @@ const Navbar = () => {
             to="/"
             className="text-2xl font-bold text-halloween-ghostWhite flex items-center"
           >
-            <span className="text-halloween-orange">CODE</span>ARAMBH
+            <img src={logos} className='w-30 h-14'></img>
           </Link>
 
           {/* Desktop Menu */}
