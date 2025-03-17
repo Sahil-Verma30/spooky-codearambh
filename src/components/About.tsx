@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Ghost, Code, Skull } from 'lucide-react';
+import Hell from "../components/assests/hell.jpg"
 
 const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -26,7 +27,13 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="section-padding py-28">
+    <section id="about" ref={sectionRef} className="section-padding py-28"
+       style={{
+      backgroundImage: `linear-gradient(to bottom, rgba(26, 31, 44, 0.95), rgba(26, 31, 44, 0.8)), url(${Hell})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed'
+    }}>
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
