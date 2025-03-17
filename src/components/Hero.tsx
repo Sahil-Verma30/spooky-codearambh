@@ -64,10 +64,10 @@ const Hero = () => {
       </div>
 
       {/* Halloween decorations */}
-      <div className="absolute top-14 left-10 text-orange-500 text-6xl">🎃</div>
-      {/* <div className="absolute top-16 right-10 text-purple-500 text-5xl">🦇</div>
-      <div className="absolute bottom-5 left-10 text-gray-500 text-6xl">🕷️</div> */}
-      <div className="absolute bottom-5 right-10 text-red-500 text-6xl">🕸️</div>
+{/*       <div className="absolute top-14 left-10 text-orange-500 text-6xl">🎃</div> */}
+      <div className="absolute top-16 right-10 text-purple-500 text-5xl">🦇</div>
+      <div className="absolute bottom-5 left-10 text-gray-500 text-6xl">🕷️</div>
+      // <div className="absolute bottom-5 right-10 text-red-500 text-6xl">🕸️</div>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 text-center relative z-10">
