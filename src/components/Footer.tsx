@@ -2,10 +2,12 @@
 import React from 'react';
 import { Facebook, InstagramIcon, LinkedinIcon,  } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import backImage from "../components/assests/foot.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-halloween-darkPurple py-16 border-t border-white/10">
+    <footer className="bg-halloween-darkPurple py-16 border-t border-white/10"
+      style={{ backgroundImage: `url(${backImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
