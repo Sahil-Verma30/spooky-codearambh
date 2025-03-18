@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Res from "../components/assests/res.jpg"
 import {
   Ghost,
   FileQuestion,
@@ -240,6 +241,12 @@ const Registration = () => {
       id="register"
       ref={sectionRef}
       className="section-padding py-28 bg-halloween-darkPurple relative overflow-hidden"
+       style={{
+        backgroundImage: `linear-gradient(to bottom, rgba(26, 31, 44, 0.95), rgba(26, 31, 44, 0.8)), url(${Res})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
