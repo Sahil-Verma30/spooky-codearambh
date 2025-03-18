@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Facebook, InstagramIcon, LinkedinIcon,  } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import backImage from "../components/assests/foot.png";
+import logos from "../components/assests/log.gif"
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
             <a href="#" className="text-3xl font-bold text-halloween-ghostWhite flex items-center">
-              <span className="text-halloween-orange">CODE</span>ARAMBH
+              <img src={logos} className='w-40 h-18'></img> 
             </a>
             <p className="text-halloween-ghostWhite/60 mt-4 max-w-md">
               The spookiest hackathon of the year, bringing together the most talented 
