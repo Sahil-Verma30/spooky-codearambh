@@ -88,7 +88,7 @@ const Hero = () => {
         <div className="opacity-0 fade-in-up flex justify-center items-center gap-3 animate-float">
           <span className="text-orange-500 text-3xl animate-bounce">🎃</span>
           <div className="inline-block px-5 py-2 rounded-full bg-gradient-to-r from-orange-700 to-orange-500 text-black mb-4 border border-orange-300 shadow-lg shadow-orange-500/50 neon-glow">
-            <span className="text-lg font-bold tracking-widest spooky-text">
+            <span className="text-sm md:text-lg font-bold tracking-widest spooky-text">
               👻 April 11-12, 2025 👻
             </span>
           </div>
