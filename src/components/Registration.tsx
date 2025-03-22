@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import Res from "../components/assests/res.jpg"
+import Res from "../components/assests/res.jpg";
 import {
   Ghost,
   FileQuestion,
@@ -26,7 +26,8 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Textarea } from "./ui/textarea";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
 
 type TeamMember = {
   name: string;
@@ -196,7 +197,7 @@ const Registration = () => {
       members,
     };
 
-    console.log("Final Form Data:", finalFormData);
+    // console.log("Final Form Data:", finalFormData);
 
     try {
       const response = await fetch(
@@ -209,7 +210,7 @@ const Registration = () => {
       );
 
       const result = await response.json();
-      console.log(result);
+      // console.log(result);
       if (!response.ok) {
         // toast.error("Something went wrong!!!");
         toast({
@@ -240,12 +241,16 @@ const Registration = () => {
     <section
       id="register"
       ref={sectionRef}
-      className="section-padding py-28 bg-halloween-darkPurple relative overflow-hidden"
-       style={{
+      className={
+        !formSubmitted
+          ? "section-padding py-28 bg-halloween-darkPurple relative overflow-hidden"
+          : "section-padding h-[100vh] py-28 bg-halloween-darkPurple relative overflow-hidden"
+      }
+      style={{
         backgroundImage: `linear-gradient(to bottom, rgba(26, 31, 44, 0.95), rgba(26, 31, 44, 0.8)), url(${Res})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
       }}
     >
       {/* Background decorative elements */}
@@ -263,98 +268,112 @@ const Registration = () => {
 
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-block px-3 py-1 rounded-full bg-halloween-orange/20 text-halloween-orange mb-4 border border-halloween-orange/30 hidden-element opacity-0">
-            <span className="text-sm font-medium">Join The Haunting</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 hidden-element opacity-0">
-            <span className="text-halloween-ghostWhite">Register for </span>
-            <span className="text-halloween-orange">CODEARAMBH</span>
-          </h2>
-          <p className="text-halloween-ghostWhite/70 max-w-2xl mx-auto hidden-element opacity-0">
-            Secure your spot in the spookiest hackathon of the year. Fill out
-            the form below to begin your Halloween coding adventure.
-          </p>
-
-          {/* Guidelines Dialog */}
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="outline"
-                className="mt-4 border border-halloween-orange/30 bg-halloween-orange/10 text-halloween-orange hover:bg-halloween-orange/20"
-              >
-                <FileQuestion className="w-4 h-4 mr-2" />
-                Submission Guidelines
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite h-[95vh] overflow-y-auto max-w-2xl">
-              <DialogHeader>
-                <DialogTitle className="text-halloween-orange text-xl">
-                  Submission Guidelines
-                </DialogTitle>
-                <DialogDescription className="text-halloween-ghostWhite/70">
-                  Follow these guidelines for your submission to be accepted.
-                </DialogDescription>
-              </DialogHeader>
-
-              <div className="space-y-6 mt-4">
-                <div className="space-y-2">
-                  <h3 className="text-halloween-orange flex items-center text-lg">
-                    <FileCheck2 className="w-5 h-5 mr-2" />
-                    Submission Requirements
-                  </h3>
-                  <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
-                    <li>
-                      <strong>Video:</strong> Max 2 minutes
-                    </li>
-                    <li>
-                      <strong>PPT:</strong> Min 6 slides and Max 10 slides,
-                      PDF/PPTX format
-                    </li>
-                    <li>PPT should have the problem statement</li>
-                    <li>In PPT include your unique solution</li>
-                    <li>How your solution impacts the real world</li>
-                    <li>Future scope</li>
-                    <li>Conclusion</li>
-                    <li>Tech stack</li>
-                    <li>File names must include team name</li>
-                  </ul>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-halloween-orange flex items-center text-lg">
-                    <AlertTriangle className="w-5 h-5 mr-2" />
-                    Important Notes
-                  </h3>
-                  <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
-                    <li>
-                      <strong>Deadline:</strong> August 25th 11:59 PM
-                    </li>
-                    <li>No edits allowed after submission</li>
-                    <li>Max team size: 4 members</li>
-                    <li>Make sure Google Drive link is accessible</li>
-                  </ul>
-                </div>
-
-                <div className="space-y-2">
-                  <h3 className="text-red-500 flex items-center text-lg">
-                    <Clock className="w-5 h-5 mr-2" />
-                    Rejection Reasons
-                  </h3>
-                  <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
-                    <li>Invalid file formats</li>
-                    <li>Missing team members info</li>
-                    <li>Google Drive access denied</li>
-                    <li>Late submissions</li>
-                  </ul>
-                </div>
+          {!formSubmitted && (
+            <>
+              <div className="inline-block px-3 py-1 rounded-full bg-halloween-orange/20 text-halloween-orange mb-4 border border-halloween-orange/30 hidden-element opacity-0">
+                <span className="text-sm font-medium">Join The Haunting</span>
               </div>
-            </DialogContent>
-          </Dialog>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 hidden-element opacity-0">
+                <span className="text-halloween-ghostWhite">Register for </span>
+                <span className="text-halloween-orange">CODEARAMBH</span>
+              </h2>
+              <p className="text-halloween-ghostWhite/70 max-w-2xl mx-auto hidden-element opacity-0">
+                Secure your spot in the spookiest hackathon of the year. Fill
+                out the form below to begin your Halloween coding adventure.
+              </p>
+              {/* Guidelines Dialog */}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="mt-4 border border-halloween-orange/30 bg-halloween-orange/10 text-halloween-orange hover:bg-halloween-orange/20"
+                  >
+                    <FileQuestion className="w-4 h-4 mr-2" />
+                    Submission Guidelines
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite h-[95vh] overflow-y-auto max-w-2xl">
+                  <DialogHeader>
+                    <DialogTitle className="text-halloween-orange text-xl">
+                      Submission Guidelines
+                    </DialogTitle>
+                    <DialogDescription className="text-halloween-ghostWhite/70">
+                      Follow these guidelines for your submission to be
+                      accepted.
+                    </DialogDescription>
+                  </DialogHeader>
+
+                  <div className="space-y-6 mt-4">
+                    <div className="space-y-2">
+                      <h3 className="text-halloween-orange flex items-center text-lg">
+                        <FileCheck2 className="w-5 h-5 mr-2" />
+                        Submission Requirements
+                      </h3>
+                      <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
+                        <li>
+                          <strong>Video:</strong> Max 1 minutes
+                        </li>
+                        <li>
+                          <strong>PPT:</strong> Min 6 slides and Max 10 slides,
+                          PDF/PPTX format
+                        </li>
+                        <li>PPT should have the problem statement</li>
+                        <li>In PPT include your unique solution</li>
+                        <li>How your solution impacts the real world</li>
+                        <li>Future scope</li>
+                        <li>Conclusion</li>
+                        <li>Tech stack</li>
+                        <li>File names must include team name</li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-halloween-orange flex items-center text-lg">
+                        <AlertTriangle className="w-5 h-5 mr-2" />
+                        Important Notes
+                      </h3>
+                      <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
+                        <li>
+                          <strong>Deadline:</strong> April, 5, 11:59 PM
+                        </li>
+                        <li>No edits allowed after submission</li>
+                        <li>Max team size: 4 members</li>
+                        <li>Make sure Google Drive link is accessible</li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-red-500 flex items-center text-lg">
+                        <Clock className="w-5 h-5 mr-2" />
+                        Rejection Reasons
+                      </h3>
+                      <ul className="list-disc pl-6 text-halloween-ghostWhite/90 space-y-2">
+                        <li>Invalid file formats</li>
+                        <li>Missing team members info</li>
+                        <li>Google Drive access denied</li>
+                        <li>Late submissions</li>
+                      </ul>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </>
+          )}
         </div>
 
         {formSubmitted ? (
           <div className="text-center text-halloween-orange font-semibold text-3xl">
             🎉 Registration Successful!
+            <h1 className="text-gray-200 mt-7">
+              Join WhatsApp Group for further Updates!
+            </h1>
+            <Link
+              to="https://chat.whatsapp.com/EY0UwiAaT1aG4kpxREzmeG"
+              className="w-fit border green-btn green-glow flex gap-2 mx-auto mt-8"
+            >
+              <FaWhatsapp className="text-green-500" />
+              WhatsApp
+            </Link>
           </div>
         ) : (
           <div className="max-w-3xl mx-auto hidden-element opacity-0">
@@ -613,7 +632,7 @@ const Registration = () => {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 bg-halloween-purple/50 border border-white/10 rounded-lg text-halloween-ghostWhite focus:outline-none focus:border-halloween-orange"
-                      placeholder="Describe your project idea (minimum 10 characters)"
+                      placeholder="Describe your project idea (minimum 100-150 words)"
                     />
                   </div>
 

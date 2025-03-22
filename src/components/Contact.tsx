@@ -86,10 +86,10 @@ const Contact = () => {
             </h3>
             <p className="text-lg text-halloween-ghostWhite/80">
               <a
-                href="tel:+911234567890"
+                href="tel:+917303523559"
                 className="hover:text-halloween-orange transition"
               >
-                +91 78307784369
+                +91 7303523559
               </a>
             </p>
           </div>
@@ -101,10 +101,16 @@ const Contact = () => {
             </h3>
             <p className="text-lg text-halloween-ghostWhite/80">
               <a
-                href="mailto:info@hitech.edu.in"
+                href="mailto:amarnathyadav.cse@hietgroup.org"
                 className="hover:text-halloween-orange transition"
               >
                 amarnathyadav.cse@hietgroup.org
+              </a>
+              <br />
+              <a
+                href="mailto:kapilsharma.cse@hietgroup.org"
+                className="hover:text-halloween-orange transition"
+              >
                 kapilsharma.cse@hietgroup.org
               </a>
             </p>
@@ -134,7 +140,7 @@ const Contact = () => {
             </h2>
             <ul className="text-xl text-halloween-ghostWhite/80 mt-4 space-y-2">
               <li>
-                Name:{"Sahil Verma  "}
+                {"Sahil Verma  "}
                 <a
                   href="tel:+917830784369"
                   className="text-halloween-orange hover:underline"
@@ -143,7 +149,7 @@ const Contact = () => {
                 </a>
               </li>
               <li>
-                Name:{"Himanshu Kumar"}
+                {"Himanshu Kumar "}
                 <a
                   href="tel:+919953746294"
                   className="text-halloween-orange hover:underline"
@@ -158,7 +164,7 @@ const Contact = () => {
             </h2>
             <ul className="text-xl text-halloween-ghostWhite/80 mt-4 space-y-2">
               <li>
-                Name:{"Amarnath Yadav "}
+                {"Amarnath Yadav "}
                 <a
                   href="tel:+918377916454"
                   className="text-halloween-orange hover:underline"
@@ -167,7 +173,7 @@ const Contact = () => {
                 </a>
               </li>
               <li>
-                Name:{" Kapil Sharma"}
+                {" Kapil Sharma "}
                 <a
                   href="tel:+919456071378"
                   className="text-halloween-orange hover:underline"

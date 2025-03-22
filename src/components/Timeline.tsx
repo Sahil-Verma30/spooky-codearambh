@@ -31,8 +31,8 @@ const Timeline = () => {
       description: "Register to secure your spot in the hackathon"
     },
     {
-      date: "April 8",
-      title: "Team Formation Deadline",
+      date: "April 5",
+      title: "Team Formation",
       description: "Finalize your team of up to 4 members"
     },
     {

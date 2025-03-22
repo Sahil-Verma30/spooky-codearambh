@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "tailwindcss/tailwind.css";
 import { FaDiscord } from "react-icons/fa";
 
-const targetDate = new Date("2025-04-11T00:00:00").getTime(); // Set the hackathon start date
+const targetDate = new Date("2025-04-06T00:00:00").getTime(); // Set the hackathon start date
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -81,7 +81,7 @@ const Hero = () => {
 
       {/* Halloween decorations */}
       <div className="absolute top-16 right-10 text-purple-500 text-5xl">🦇</div>
-      <div className="absolute bottom-5 left-10 text-gray-500 text-6xl">🕷️</div> 
+      {/* <div className="absolute bottom-5 left-10 text-gray-500 text-6xl">🕷️</div>  */}
 
       {/* Main Content */}
       <div className="container mx-auto px-4 text-center relative z-10">
