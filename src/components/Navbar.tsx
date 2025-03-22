@@ -53,7 +53,7 @@ const Navbar = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 items-center">
             <nav className="flex space-x-6">
-              {["about", "timeline", "tracks", "prizes", "faq"].map((item) => (
+              {["home", "about", "timeline", "tracks", "prizes", "FAQ"].map((item) => (
                 <button
                   key={item}
                   onClick={() => handleNavigation(item)}
@@ -102,7 +102,7 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <nav className="flex flex-col space-y-6 items-center text-xl mt-8">
-          {["about", "timeline", "tracks", "prizes", "faq"].map((item) => (
+          {["about", "timeline", "tracks", "prizes", "FAQ"].map((item) => (
             <a
               key={item}
               href={`/#${item}`}

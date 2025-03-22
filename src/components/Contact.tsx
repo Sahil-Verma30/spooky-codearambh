@@ -89,7 +89,7 @@ const Contact = () => {
                 href="tel:+911234567890"
                 className="hover:text-halloween-orange transition"
               >
-                +91 12345 67890
+                +91 78307784369
               </a>
             </p>
           </div>
@@ -104,7 +104,8 @@ const Contact = () => {
                 href="mailto:info@hitech.edu.in"
                 className="hover:text-halloween-orange transition"
               >
-                info@hitech.edu.in
+                amarnathyadav.cse@hietgroup.org
+                kapilsharma.cse@hietgroup.org
               </a>
             </p>
           </div>
@@ -133,21 +134,21 @@ const Contact = () => {
             </h2>
             <ul className="text-xl text-halloween-ghostWhite/80 mt-4 space-y-2">
               <li>
-                Name:{" "}
+                Name:{"Sahil Verma  "}
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+917830784369"
                   className="text-halloween-orange hover:underline"
                 >
-                  +91 12345 67890
+                  +91 7830784369
                 </a>
               </li>
               <li>
-                Name:{" "}
+                Name:{"Himanshu Kumar"}
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+919953746294"
                   className="text-halloween-orange hover:underline"
                 >
-                  +91 12345 67890
+                  +91 9953746294
                 </a>
               </li>
             </ul>
@@ -157,21 +158,21 @@ const Contact = () => {
             </h2>
             <ul className="text-xl text-halloween-ghostWhite/80 mt-4 space-y-2">
               <li>
-                Name:{" "}
+                Name:{"Amarnath Yadav "}
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+918377916454"
                   className="text-halloween-orange hover:underline"
                 >
-                  +91 12345 67890
+                  +91 8377916454
                 </a>
               </li>
               <li>
-                Name:{" "}
+                Name:{" Kapil Sharma"}
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+919456071378"
                   className="text-halloween-orange hover:underline"
                 >
-                  +91 12345 67890
+                  +91 9456071378
                 </a>
               </li>
             </ul>

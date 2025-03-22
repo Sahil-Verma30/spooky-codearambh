@@ -88,6 +88,18 @@
   .ghost-btn {
     @apply relative px-6 py-3 overflow-hidden font-medium transition-all bg-transparent border border-halloween-orange text-halloween-ghostWhite rounded-md hover:bg-halloween-orange/20;
   }
+
+  @keyframes borderGlow {
+    0% { border-color: #ff7300; }
+    25% { border-color: #ffcc00; }
+    50% { border-color: #ff7300; }
+    75% { border-color: #ffcc00; }
+    100% { border-color: #ff7300; }
+  }
+
+  .animate-borderGlow {
+    animation: borderGlow 1.5s infinite alternate ease-in-out;
+  }
   
   .ghost-btn::before {
     content: '';

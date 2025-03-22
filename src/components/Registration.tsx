@@ -286,7 +286,7 @@ const Registration = () => {
                 Submission Guidelines
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite max-w-2xl">
+            <DialogContent className="bg-halloween-darkPurple border border-white/10 text-halloween-ghostWhite h-[95vh] overflow-y-auto max-w-2xl">
               <DialogHeader>
                 <DialogTitle className="text-halloween-orange text-xl">
                   Submission Guidelines
@@ -730,7 +730,7 @@ const Registration = () => {
                   Limited Spots
                 </h3>
                 <p className="text-halloween-ghostWhite/70 text-sm">
-                  Only 500 hackers can participate. Register early!
+                  Only 100 hackers can participate. Register early!
                 </p>
               </div>
 
@@ -756,7 +756,7 @@ const Registration = () => {
                   Mark Your Calendar
                 </h3>
                 <p className="text-halloween-ghostWhite/70 text-sm">
-                  March 28-29, 2025. Don't miss out!
+                  April 11-12, 2025. Don't miss out!
                 </p>
               </div>
 

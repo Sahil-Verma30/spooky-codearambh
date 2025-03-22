@@ -35,7 +35,7 @@ const FAQ = () => {
     }
   };
 
-  const faqItems = [
+  const FAQItems = [
     {
       question: "Who can participate in CODEARAMBH?",
       answer: "CODEARAMBH is open to students and coding enthusiasts of all skill levels. Whether you're a beginner or an experienced developer, everyone is welcome to join the hackathon!"
@@ -71,7 +71,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" ref={sectionRef} className="section-padding py-28">
+    <section id="FAQ" ref={sectionRef} className="section-padding py-28">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <div className="inline-block px-3 py-1 rounded-full bg-halloween-lavender/20 text-halloween-lavender mb-4 border border-halloween-lavender/30 hidden-element opacity-0">
@@ -89,7 +89,7 @@ const FAQ = () => {
 
         <div className="max-w-3xl mx-auto">
           <div className="space-y-4 hidden-element opacity-0">
-            {faqItems.map((item, index) => (
+            {FAQItems.map((item, index) => (
               <div 
                 key={index} 
                 className={`glass-card overflow-hidden transition-all duration-300 ${
